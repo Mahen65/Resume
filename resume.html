@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asiri Somarthne ™</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #8A7AD3 0%, #5D50B6 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8A7AD3 0%, #5D50B6 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: rgba(255,255,255,0.2);
+            border: 4px solid rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .title {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+        
+        .sidebar {
+            background: #f8f9ff;
+            padding: 40px 30px;
+            border-right: 1px solid #e0e6ff;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #5D50B6;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(135deg, #8A7AD3, #5D50B6);
+            border-radius: 2px;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .experience-item::before, .education-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: #8A7AD3;
+            border-radius: 50%;
+        }
+        
+        .job-title, .degree {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .company, .school {
+            font-weight: 500;
+            color: #5D50B6;
+            margin-bottom: 5px;
+        }
+        
+        .date {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .skill-level {
+            height: 6px;
+            background: #e0e6ff;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, #8A7AD3, #5D50B6);
+            border-radius: 3px;
+            transition: width 0.8s ease;
+        }
+        
+        .languages ul, .interests ul {
+            list-style: none;
+        }
+        
+        .languages li, .interests li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e6ff;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .languages li:last-child, .interests li:last-child {
+            border-bottom: none;
+        }
+        
+        .language-level {
+            color: #5D50B6;
+            font-weight: 500;
+        }
+        
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #8A7AD3, #5D50B6);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+            .print-btn {
+                display: none;
+            }
+            .header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .skill-progress {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .name {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="header">
+            <div class="profile-pic"><img src="myself.jpeg" alt="Asiri Somarathne" style="width:100%; height:100%; border-radius:50%; object-fit: cover;"></div>
+            <h1 class="name">Asiri Somarathne</h1>
+            <p class="title">Technical Lead</p>
+            <div class="contact-info">
+                <div class="contact-item">📧 asirisomarathne@gmail.com</div>
+                <div class="contact-item">📱 +94 70 2790690</div>
+                <div class="contact-item">📍 238A , Jaya Mawatha , Welmilla , Bandaragama</div>
+                <div class="contact-item">🔗 linkedin.com/in/asirisomarathne</div>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section skills">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-name">Azure</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">.Net Core</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">ASP.Net</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">C#/VB .NET Windows Forms</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">SQL Server</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Oracle 12c</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">React</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Node.js</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Python</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section languages">
+                    <h2 class="section-title">Languages</h2>
+                    <ul>
+                        <li>
+                            <span>English</span>
+                            <span class="language-level">Fluent</span>
+                        </li>
+                        <li>
+                            <span>Sinhalese</span>
+                            <span class="language-level">Native</span>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section class="section interests">
+                    <h2 class="section-title">Interests</h2>
+                    <ul>
+                        <li>Web Development</li>
+                        <li>Machine Learning</li>
+                        <li>Photography</li>
+                        <li>Traveling</li>
+                    </ul>
+                </section>
+            </aside>
+            
+            <main class="content">
+                <section class="section summary">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <p class="description">
+                      Seasoned .NET Developer with 10+ years of experience building enterprise-level applications using Microsoft technologies. Expertise in full-stack development with C#,.Net Core, ASP.NET, SQL Server, and modern web frameworks. Proven ability to lead technical projects, mentor development teams, and deliver scalable solutions that drive business growth.
+                    </p>
+                </section>
+                
+                <section class="section experience">
+                    <h2 class="section-title">Work Experience</h2>
+                    
+                    <div class="experience-item">
+                        <h3 class="job-title">Technical Lead</h3>
+                        <p class="company">Twire Private Limited</p>
+                        <p class="date">February 2020 - Present</p>
+                        <p class="description">
+                            Lead development of web/desktop applications using .NET Windows Forms, .NET Core, SQL Server, Hangfire, Azure, React, and Node.js. Collaborated with cross-functional 
+                            teams to deliver scalable solutions. Mentored junior developers and implemented best practices.Worked on various projects including a comprehensive ERP system for a world leading Cigar Manufacturer for 4 years.
+                        </p>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <h3 class="job-title">Software Engineer</h3>
+                        <p class="company">Sirus Technologies Services (pvt) Ltd (Abans)</p>
+                        <p class="date">February 2019 - February 2020</p>
+                        <p class="description">
+                            Developed and maintained Thier main ERP Desktop applications using C# .NET Windows Forms,WCF and Oracle 12c. This system has most concurrent users in Srilanka by the time. 
+                            Also there were few web applications developed using ASP.NET Core.and also Document Management System (DMS) using .Net Core and Angular.
+                            Participated in code reviews and contributed to architectural decisions.
+                        </p>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <h3 class="job-title">Junior Developer-Senior Developer</h3>
+                        <p class="company">Naturub Exports International (Pvt) Ltd</p>
+                        <p class="date">January 2015 - February 2019</p>
+                        <p class="description">
+                            Developed and maintained their In-house Production Planning and Stock management Desktop applications using C# .NET Windows Forms and SQL Server. 
+                            And Supply Chain Management (SCM) system using Asp.Net Web Forms and SQL Server.Also Few other Invoicing systems were developed using WPF
+                            Implemented new features, optimized performance, and ensured high availability of the system. 
+                            Collaborated with business analysts to gather requirements and deliver solutions that met business needs.
+                        </p>
+                    </div>
+                </section>
+                
+                <section class="section education">
+                    <h2 class="section-title">Education</h2>
+                    
+                    <div class="education-item">
+                        <h3 class="degree">Diploma In Software Engineering</h3>
+                        <p class="school">University of Sabaragamuwa</p>
+                        <p class="date">2013 - 2014</p>
+                        <p class="description">
+                            Graduated As the Batch top
+                    </div>
+                    <div class="education-item">
+                        <h3 class="degree">Advanced Diploma in .net Application Development Using C#.Net</h3>
+                        <p class="school">Lalith Athulathmudali Vocational Training Institute (Rathmalana)</p>
+                        <p class="date">2014 - 2015</p>
+                    </div>
+                     <div class="education-item">
+                        <h3 class="degree">BCS Certified Professional  </h3>
+                        <p class="school">British Computer Society</p>
+                        <p class="date">2021</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    
+    <button class="print-btn" onclick="window.print()">🖨️ Print Resume</button>
+</body>
+</html>
