@@ -275,30 +275,6 @@
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
         }
         
-        @media print {
-            body {
-                padding: 0;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .resume-container {
-                box-shadow: none;
-                border-radius: 0;
-                max-width: 100%;
-            }
-            .print-btn {
-                display: none;
-            }
-            .header {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .skill-progress {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-        
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
@@ -312,6 +288,33 @@
             }
             .name {
                 font-size: 2rem;
+            }
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+            .main-content {
+                grid-template-columns: 1fr 2fr;
+            }
+            .print-btn {
+                display: none;
+            }
+            .header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .skill-progress {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     </style>
