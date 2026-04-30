@@ -255,6 +255,10 @@
             font-weight: 500;
         }
         
+        .print-footer {
+            display: none;
+        }
+
         .print-btn {
             position: fixed;
             bottom: 30px;
@@ -275,7 +279,200 @@
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
         }
         
-        @media (max-width: 768px) {
+        @media print {
+            @page {
+                size: A4;
+                margin: 10mm 8mm;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                animation: none !important;
+                transition: none !important;
+            }
+
+            html, body {
+                background: #fff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100%;
+                min-height: 0;
+                font-size: 10pt;
+                line-height: 1.45;
+            }
+
+            .resume-container {
+                max-width: 100%;
+                width: 100%;
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+                overflow: visible;
+                animation: none;
+                display: flex !important;
+                flex-direction: column !important;
+                min-height: 100vh;
+            }
+
+            .header {
+                padding: 18px 24px;
+                page-break-after: avoid;
+                break-after: avoid;
+                background: linear-gradient(135deg, #8A7AD3 0%, #5D50B6 100%) !important;
+            }
+
+            .header::before {
+                display: none !important;
+            }
+
+            .profile-pic {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto 10px;
+                border-width: 3px;
+            }
+
+            .name {
+                font-size: 1.8rem;
+                margin-bottom: 4px;
+            }
+
+            .title {
+                font-size: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: row !important;
+                gap: 14px !important;
+                margin-top: 12px;
+            }
+
+            .contact-item {
+                font-size: 0.78rem;
+            }
+
+            .main-content {
+                display: grid !important;
+                grid-template-columns: 1fr 2fr !important;
+                gap: 0 !important;
+                flex: 1 0 auto;
+                background: linear-gradient(to right,
+                    #f8f9ff 0,
+                    #f8f9ff calc(33.3333% - 0.5px),
+                    #e0e6ff calc(33.3333% - 0.5px),
+                    #e0e6ff calc(33.3333% + 0.5px),
+                    #ffffff calc(33.3333% + 0.5px),
+                    #ffffff 100%) !important;
+            }
+
+            .sidebar {
+                background: transparent !important;
+                border-right: none !important;
+                padding: 20px 16px;
+            }
+
+            .content {
+                padding: 20px 22px;
+            }
+
+            .section {
+                margin-bottom: 18px;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+                padding-bottom: 6px;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            .experience-item,
+            .education-item {
+                margin-bottom: 14px;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .job-title,
+            .degree {
+                font-size: 1rem;
+                margin-bottom: 2px;
+            }
+
+            .company,
+            .school {
+                margin-bottom: 2px;
+            }
+
+            .date {
+                font-size: 0.8rem;
+                margin-bottom: 4px;
+            }
+
+            .description {
+                font-size: 0.92rem;
+            }
+
+            .skills-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 8px;
+            }
+
+            .skill-item {
+                padding: 8px 10px;
+                box-shadow: none !important;
+                border: 1px solid #e0e6ff;
+                border-radius: 6px;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .skill-name {
+                font-size: 0.85rem;
+                margin-bottom: 4px;
+            }
+
+            .skill-level {
+                background: #e0e6ff !important;
+            }
+
+            .skill-progress {
+                background: linear-gradient(135deg, #8A7AD3, #5D50B6) !important;
+            }
+
+            .languages li,
+            .interests li {
+                padding: 4px 0;
+                font-size: 0.9rem;
+            }
+
+            .print-btn {
+                display: none !important;
+            }
+
+            .print-footer {
+                display: block !important;
+                text-align: center;
+                font-size: 0.75rem;
+                color: #5D50B6;
+                padding: 10px 0 0;
+                margin-top: 16px;
+                border-top: 1px solid #e0e6ff;
+            }
+
+            .print-footer a {
+                color: #5D50B6;
+                text-decoration: none;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
             }
@@ -474,6 +671,7 @@
                         <p class="date">2013 - 2014</p>
                         <p class="description">
                             Graduated As the Batch top
+                        </p>
                     </div>
                     <div class="education-item">
                         <h3 class="degree">Advanced Diploma in .net Application Development Using C#.Net</h3>
@@ -490,6 +688,10 @@
         </div>
     </div>
     
+    <footer class="print-footer">
+        <a href="https://mahen65.github.io/Resume/">https://mahen65.github.io/Resume/</a>
+    </footer>
+
     <button class="print-btn" onclick="window.print()">🖨️ Print Resume</button>
 </body>
 </html>
