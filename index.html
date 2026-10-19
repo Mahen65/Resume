@@ -3,695 +3,569 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asiri Somarthne ™</title>
+    <title>Asiri Somarathne – CV</title>
+    <meta name="description" content="Asiri Somarathne, Technical Lead. .NET, TypeScript, React Native (iOS and Android), cloud and applied AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --desk: #DCE4E8;
+            --paper: #F4F8F8;
+            --ink: #18222E;
+            --muted: #5A6573;
+            --rule: #D9DFE5;
+            --accent: #0E5A64;
+            --accent-soft: #E2EFEF;
+            --rail: 9.5rem;
+            --sans: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+            --serif: 'Source Serif 4', Georgia, serif;
         }
-        
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --desk: #0F151B;
+                --paper: #172029;
+                --ink: #E4E9EE;
+                --muted: #9AA6B2;
+                --rule: #2A3540;
+                --accent: #6CC3C9;
+                --accent-soft: #1D3238;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --desk: #0F151B;
+            --paper: #172029;
+            --ink: #E4E9EE;
+            --muted: #9AA6B2;
+            --rule: #2A3540;
+            --accent: #6CC3C9;
+            --accent-soft: #1D3238;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #8A7AD3 0%, #5D50B6 100%);
-            min-height: 100vh;
-            padding: 20px;
+            background: var(--desk);
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 16px;
+            line-height: 1.55;
+            padding: 48px 16px 96px;
+            -webkit-font-smoothing: antialiased;
         }
-        
-        .resume-container {
-            max-width: 800px;
+
+        a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+        a:hover { color: var(--accent); text-decoration-color: currentColor; }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+        .page {
+            max-width: 860px;
             margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-            animation: slideUp 0.8s ease-out;
+            background: var(--paper);
+            padding: 64px 64px 56px;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(24, 34, 46, .06), 0 12px 32px -12px rgba(24, 34, 46, .18);
         }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #8A7AD3 0%, #5D50B6 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            background: rgba(255,255,255,0.2);
-            border: 4px solid rgba(255,255,255,0.3);
+
+        /* Header */
+        .masthead {
+            --photo: 212px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            position: relative;
-            z-index: 1;
+            gap: 32px;
+            padding-bottom: 28px;
+            border-bottom: 2px solid var(--ink);
         }
-        
+
         .name {
-            font-size: 2.5rem;
+            font-family: var(--sans);
+            font-size: clamp(2.4rem, 6vw, 3.3rem);
             font-weight: 700;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
+            line-height: .9;
+            margin-top: -.06em;
+            letter-spacing: -.035em;
         }
-        
-        .title {
-            font-size: 1.2rem;
-            font-weight: 300;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            position: relative;
-            z-index: 1;
-            flex-wrap: wrap;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-        }
-        
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 0;
-        }
-        
-        .sidebar {
-            background: #f8f9ff;
-            padding: 40px 30px;
-            border-right: 1px solid #e0e6ff;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-        }
-        
-        .section-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #5D50B6;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: linear-gradient(135deg, #8A7AD3, #5D50B6);
-            border-radius: 2px;
-        }
-        
-        .experience-item, .education-item {
-            margin-bottom: 30px;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .experience-item::before, .education-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 10px;
-            height: 10px;
-            background: #8A7AD3;
-            border-radius: 50%;
-        }
-        
-        .job-title, .degree {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 5px;
-        }
-        
-        .company, .school {
+
+        .role {
+            font-family: var(--sans);
+            font-size: 1.04rem;
             font-weight: 500;
-            color: #5D50B6;
-            margin-bottom: 5px;
+            line-height: 1.35;
+            color: var(--accent);
+            margin-top: 14px;
+            letter-spacing: -.01em;
         }
-        
-        .date {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 10px;
+
+        .photo {
+            /* Square, as tall as the name and contact block beside it */
+            flex: none;
+            width: var(--photo);
+            height: var(--photo);
+            border-radius: 20px;
+            object-fit: cover;
+            display: block;
         }
-        
-        .description {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-        }
-        
-        .skill-item {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .skill-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
-        }
-        
-        .skill-name {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 5px;
-        }
-        
-        .skill-level {
-            height: 6px;
-            background: #e0e6ff;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(135deg, #8A7AD3, #5D50B6);
-            border-radius: 3px;
-            transition: width 0.8s ease;
-        }
-        
-        .languages ul, .interests ul {
-            list-style: none;
-        }
-        
-        .languages li, .interests li {
-            padding: 8px 0;
-            border-bottom: 1px solid #e0e6ff;
+
+        .intro {
+            height: var(--photo);
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-        }
-        
-        .languages li:last-child, .interests li:last-child {
-            border-bottom: none;
-        }
-        
-        .language-level {
-            color: #5D50B6;
-            font-weight: 500;
-        }
-        
-        .print-footer {
-            display: none;
+            min-width: 0;
         }
 
-        .print-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, #8A7AD3, #5D50B6);
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            cursor: pointer;
+        .intro .role { margin-top: 0; }
+
+        .contact {
+            margin-top: 0 !important;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 20px;
+            list-style: none;
+            margin-top: 18px;
+            font-family: var(--sans);
+            font-size: .86rem;
+            color: var(--muted);
+        }
+
+        /* Sections: label rail + body */
+        .block {
+            display: grid;
+            grid-template-columns: var(--rail) 1fr;
+            gap: 0 28px;
+            padding: 26px 0 4px;
+        }
+
+        .block + .block { border-top: 1px solid var(--rule); }
+
+        .block > h2 {
+            font-family: var(--sans);
+            font-size: 1rem;
             font-weight: 600;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
-            transition: all 0.3s ease;
+            color: var(--accent);
+            letter-spacing: -.005em;
+            padding-top: 2px;
         }
-        
-        .print-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+
+        .summary p {
+            font-size: 1.08rem;
+            line-height: 1.6;
+            max-width: 64ch;
         }
-        
-        @media print {
-            @page {
-                size: A4;
-                margin: 10mm 8mm;
-            }
 
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                color-adjust: exact !important;
-                animation: none !important;
-                transition: none !important;
-            }
+        .entries { display: grid; gap: 22px; padding-bottom: 22px; }
 
-            html, body {
-                background: #fff !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                width: 100%;
-                min-height: 0;
-                font-size: 10pt;
-                line-height: 1.45;
-            }
-
-            .resume-container {
-                max-width: 100%;
-                width: 100%;
-                margin: 0;
-                box-shadow: none;
-                border-radius: 0;
-                overflow: visible;
-                animation: none;
-                display: flex !important;
-                flex-direction: column !important;
-                min-height: 100vh;
-            }
-
-            .header {
-                padding: 18px 24px;
-                page-break-after: avoid;
-                break-after: avoid;
-                background: linear-gradient(135deg, #8A7AD3 0%, #5D50B6 100%) !important;
-            }
-
-            .header::before {
-                display: none !important;
-            }
-
-            .profile-pic {
-                width: 80px;
-                height: 80px;
-                margin: 0 auto 10px;
-                border-width: 3px;
-            }
-
-            .name {
-                font-size: 1.8rem;
-                margin-bottom: 4px;
-            }
-
-            .title {
-                font-size: 1rem;
-            }
-
-            .contact-info {
-                flex-direction: row !important;
-                gap: 14px !important;
-                margin-top: 12px;
-            }
-
-            .contact-item {
-                font-size: 0.78rem;
-            }
-
-            .main-content {
-                display: grid !important;
-                grid-template-columns: 1fr 2fr !important;
-                gap: 0 !important;
-                flex: 1 0 auto;
-                background: linear-gradient(to right,
-                    #f8f9ff 0,
-                    #f8f9ff calc(33.3333% - 0.5px),
-                    #e0e6ff calc(33.3333% - 0.5px),
-                    #e0e6ff calc(33.3333% + 0.5px),
-                    #ffffff calc(33.3333% + 0.5px),
-                    #ffffff 100%) !important;
-            }
-
-            .sidebar {
-                background: transparent !important;
-                border-right: none !important;
-                padding: 20px 16px;
-            }
-
-            .content {
-                padding: 20px 22px;
-            }
-
-            .section {
-                margin-bottom: 18px;
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }
-
-            .section-title {
-                font-size: 1.1rem;
-                margin-bottom: 12px;
-                padding-bottom: 6px;
-                page-break-after: avoid;
-                break-after: avoid;
-            }
-
-            .experience-item,
-            .education-item {
-                margin-bottom: 14px;
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }
-
-            .job-title,
-            .degree {
-                font-size: 1rem;
-                margin-bottom: 2px;
-            }
-
-            .company,
-            .school {
-                margin-bottom: 2px;
-            }
-
-            .date {
-                font-size: 0.8rem;
-                margin-bottom: 4px;
-            }
-
-            .description {
-                font-size: 0.92rem;
-            }
-
-            .skills-grid {
-                display: grid !important;
-                grid-template-columns: 1fr 1fr !important;
-                gap: 8px;
-            }
-
-            .skill-item {
-                padding: 8px 10px;
-                box-shadow: none !important;
-                border: 1px solid #e0e6ff;
-                border-radius: 6px;
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }
-
-            .skill-name {
-                font-size: 0.85rem;
-                margin-bottom: 4px;
-            }
-
-            .skill-level {
-                background: #e0e6ff !important;
-            }
-
-            .skill-progress {
-                background: linear-gradient(135deg, #8A7AD3, #5D50B6) !important;
-            }
-
-            .languages li,
-            .interests li {
-                padding: 4px 0;
-                font-size: 0.9rem;
-            }
-
-            .print-btn {
-                display: none !important;
-            }
-
-            .print-footer {
-                display: block !important;
-                text-align: center;
-                font-size: 0.75rem;
-                color: #5D50B6;
-                padding: 10px 0 0;
-                margin-top: 16px;
-                border-top: 1px solid #e0e6ff;
-            }
-
-            .print-footer a {
-                color: #5D50B6;
-                text-decoration: none;
-            }
+        .entry {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0 16px;
         }
-        
-        @media screen and (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            .name {
-                font-size: 2rem;
-            }
+
+        .entry h3 {
+            font-family: var(--sans);
+            font-size: 1.12rem;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -.01em;
+        }
+
+        .entry .where {
+            grid-column: 1;
+            font-family: var(--sans);
+            font-size: .95rem;
+            color: var(--muted);
+        }
+
+        .entry .when {
+            grid-column: 2;
+            grid-row: 1;
+            font-family: var(--sans);
+            font-size: .88rem;
+            color: var(--muted);
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+            padding-top: 3px;
+        }
+
+        .entry .body {
+            grid-column: 1 / -1;
+            margin-top: 8px;
+            max-width: 68ch;
+        }
+
+        .entry ul { list-style: none; display: grid; gap: 9px; margin-top: 10px; }
+
+        .entry li {
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .entry li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .72em;
+            width: 7px;
+            height: 1.5px;
+            background: var(--accent);
+        }
+
+        .entry li strong { font-weight: 600; }
+
+        .stack {
+            display: block;
+            font-family: var(--sans);
+            font-size: .84rem;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        /* Projects */
+        .project h3 a { text-decoration: none; }
+        .project h3 a:hover { text-decoration: underline; }
+
+        /* Skills */
+        .skills { display: grid; gap: 12px; padding-bottom: 22px; }
+
+        .skills div {
+            display: grid;
+            grid-template-columns: 10rem 1fr;
+            gap: 0 16px;
+        }
+
+        .skills dt {
+            font-family: var(--sans);
+            font-weight: 600;
+            font-size: .95rem;
+        }
+
+        .skills dd { color: var(--ink); }
+
+        .meta-line {
+            padding-bottom: 22px;
+            max-width: 64ch;
+        }
+
+        .meta-line span { color: var(--muted); }
+
+        .print-footer { display: none; }
+
+        /* Download button */
+        .download {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            font-family: var(--sans);
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--paper);
+            background: var(--accent);
+            border: 0;
+            border-radius: 999px;
+            padding: 13px 22px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px -6px rgba(14, 90, 100, .55);
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .download svg { width: 17px; height: 17px; }
+        .download:hover { filter: brightness(1.1); }
+
+        @media (max-width: 720px) {
+            body { padding: 0 0 96px; }
+            .page { padding: 36px 16px 32px; border-radius: 0; box-shadow: none; }
+            .masthead { flex-direction: column; gap: 20px; }
+            .intro { height: auto; gap: 14px; }
+            .photo { align-self: flex-start; width: 104px; height: 104px; border-radius: 16px; }
+            .block { grid-template-columns: 1fr; }
+            .block > h2 { margin-bottom: 14px; }
+            .entry { grid-template-columns: 1fr; }
+            .entry .when { grid-column: 1; grid-row: auto; padding-top: 0; }
+            .skills div { grid-template-columns: 1fr; }
         }
 
         @media print {
-            body {
-                padding: 0;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            @page { size: A4; margin: 0; }
+
+            :root {
+                --desk: #F4F8F8; --paper: #F4F8F8; --ink: #18222E; --muted: #55606E;
+                --rule: #D9DFE5; --accent: #0E5A64; --rail: 6.8rem;
             }
-            .resume-container {
+
+            * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+            html, body { background: var(--paper); }
+            body { padding: 0; font-size: 9.2pt; line-height: 1.38; }
+            .page {
+                max-width: none;
+                padding: 12mm 13mm 11mm;
                 box-shadow: none;
                 border-radius: 0;
-                max-width: 100%;
+                /* Repeat the padding on every sheet, so page 2 gets margins too */
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
             }
-            .main-content {
-                grid-template-columns: 1fr 2fr;
+            .download { display: none; }
+            a { text-decoration: none; }
+
+            .masthead { padding-bottom: 14px; gap: 20px; }
+            .name { font-size: 27pt; }
+            .role { font-size: 12pt; margin-top: 8px; }
+            .photo { border-radius: 12px; }
+            .masthead { --photo: 118px; }
+            .contact { font-size: 8.6pt; margin-top: 10px; gap: 3px 16px; }
+
+            .block { padding: 10px 0 0; gap: 0 16px; }
+            .block > h2 { font-size: 10pt; }
+            .summary p { font-size: 10pt; }
+            .entries { gap: 9px; padding-bottom: 9px; }
+            .entry { break-inside: avoid; }
+            .entry.long { break-inside: auto; }
+            .entry li, .project, .entry .where { break-inside: avoid; }
+            .entry h3 { break-after: avoid; }
+            .entry h3 { font-size: 10.6pt; }
+            .entry .where, .entry .when { font-size: 8.8pt; }
+            .entry .body { margin-top: 4px; max-width: none; }
+            .entry ul { gap: 3px; margin-top: 4px; }
+            .stack { font-size: 8.2pt; margin-top: 1px; }
+            .skills { gap: 6px; padding-bottom: 12px; }
+            .skills div { grid-template-columns: 8rem 1fr; }
+            .skills { gap: 3px; }
+            .skills dt { font-size: 9pt; }
+            .meta-line { padding-bottom: 10px; max-width: none; }
+            .block h2 { break-after: avoid; }
+
+                        .print-footer {
+                display: block;
+                margin-top: 10px;
+                padding-top: 8px;
+                border-top: 1px solid var(--rule);
+                font-family: var(--sans);
+                font-size: 8pt;
+                color: var(--muted);
             }
-            .print-btn {
-                display: none;
-            }
-            .header {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .skill-progress {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .page { animation: settle .5s ease-out both; }
+            @keyframes settle { from { opacity: 0; transform: translateY(10px); } }
+        }
+
+        @media print {
+            .page { animation: none; }
         }
     </style>
 </head>
 <body>
-    <div class="resume-container">
-        <header class="header">
-            <div class="profile-pic"><img src="myself.jpeg" alt="Asiri Somarathne" style="width:100%; height:100%; border-radius:50%; object-fit: cover;"></div>
-            <h1 class="name">Asiri Somarathne</h1>
-            <p class="title">Technical Lead</p>
-            <div class="contact-info">
-                <div class="contact-item">📧 asirisomarathne@gmail.com</div>
-                <div class="contact-item">📱 +94 70 2790690</div>
-                <div class="contact-item">📍 238A , Jaya Mawatha , Welmilla , Bandaragama</div>
-                <div class="contact-item">🔗 linkedin.com/in/asirisomarathne</div>
-            </div>
-        </header>
-        
-        <div class="main-content">
-            <aside class="sidebar">
-                <section class="section skills">
-                    <h2 class="section-title">Skills</h2>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-name">Azure</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">.Net Core</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">ASP.Net</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">C#/VB .NET Windows Forms</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">SQL Server</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Oracle 12c</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">React</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 70%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Node.js</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Python</div>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 50%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <section class="section languages">
-                    <h2 class="section-title">Languages</h2>
-                    <ul>
-                        <li>
-                            <span>English</span>
-                            <span class="language-level">Fluent</span>
-                        </li>
-                        <li>
-                            <span>Sinhalese</span>
-                            <span class="language-level">Native</span>
-                        </li>
-                    </ul>
-                </section>
-                
-                <section class="section interests">
-                    <h2 class="section-title">Interests</h2>
-                    <ul>
-                        <li>Web Development</li>
-                        <li>Machine Learning</li>
-                        <li>Photography</li>
-                        <li>Traveling</li>
-                    </ul>
-                </section>
-            </aside>
-            
-            <main class="content">
-                <section class="section summary">
-                    <h2 class="section-title">Professional Summary</h2>
-                    <p class="description">
-                      Seasoned .NET Developer with 10+ years of experience building enterprise-level applications using Microsoft technologies. Expertise in full-stack development with C#,.Net Core, ASP.NET, SQL Server, and modern web frameworks. Proven ability to lead technical projects, mentor development teams, and deliver scalable solutions that drive business growth.
-                    </p>
-                </section>
-                
-                <section class="section experience">
-                    <h2 class="section-title">Work Experience</h2>
-                    
-                    <div class="experience-item">
-                        <h3 class="job-title">Technical Lead</h3>
-                        <p class="company">Twire Private Limited</p>
-                        <p class="date">February 2020 - Present</p>
-                        <p class="description">
-                            Lead development of web/desktop applications using .NET Windows Forms, .NET Core, SQL Server, Hangfire, Azure, React, and Node.js. Collaborated with cross-functional 
-                            teams to deliver scalable solutions. Mentored junior developers and implemented best practices.Worked on various projects including a comprehensive ERP system for a world leading Cigar Manufacturer for 4 years.
-                        </p>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <h3 class="job-title">Software Engineer</h3>
-                        <p class="company">Sirus Technologies Services (pvt) Ltd (Abans)</p>
-                        <p class="date">February 2019 - February 2020</p>
-                        <p class="description">
-                            Developed and maintained Thier main ERP Desktop applications using C# .NET Windows Forms,WCF and Oracle 12c. This system has most concurrent users in Srilanka by the time. 
-                            Also there were few web applications developed using ASP.NET Core.and also Document Management System (DMS) using .Net Core and Angular.
-                            Participated in code reviews and contributed to architectural decisions.
-                        </p>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <h3 class="job-title">Junior Developer-Senior Developer</h3>
-                        <p class="company">Naturub Exports International (Pvt) Ltd</p>
-                        <p class="date">January 2015 - February 2019</p>
-                        <p class="description">
-                            Developed and maintained their In-house Production Planning and Stock management Desktop applications using C# .NET Windows Forms and SQL Server. 
-                            And Supply Chain Management (SCM) system using Asp.Net Web Forms and SQL Server.Also Few other Invoicing systems were developed using WPF
-                            Implemented new features, optimized performance, and ensured high availability of the system. 
-                            Collaborated with business analysts to gather requirements and deliver solutions that met business needs.
-                        </p>
-                    </div>
-                </section>
-                
-                <section class="section education">
-                    <h2 class="section-title">Education</h2>
-                    
-                    <div class="education-item">
-                        <h3 class="degree">Diploma In Software Engineering</h3>
-                        <p class="school">University of Sabaragamuwa</p>
-                        <p class="date">2013 - 2014</p>
-                        <p class="description">
-                            Graduated As the Batch top
-                        </p>
-                    </div>
-                    <div class="education-item">
-                        <h3 class="degree">Advanced Diploma in .net Application Development Using C#.Net</h3>
-                        <p class="school">Lalith Athulathmudali Vocational Training Institute (Rathmalana)</p>
-                        <p class="date">2014 - 2015</p>
-                    </div>
-                     <div class="education-item">
-                        <h3 class="degree">BCS Certified Professional  </h3>
-                        <p class="school">British Computer Society</p>
-                        <p class="date">2021</p>
-                    </div>
-                </section>
-            </main>
-        </div>
-    </div>
-    
-    <footer class="print-footer">
-        <a href="https://mahen65.github.io/Resume/">https://mahen65.github.io/Resume/</a>
-    </footer>
+<article class="page">
 
-    <button class="print-btn" onclick="window.print()">🖨️ Print Resume</button>
+    <header class="masthead">
+        <img class="photo" src="myself.jpeg" alt="Asiri Somarathne">
+        <div class="intro">
+            <h1 class="name">Asiri<br>Somarathne</h1>
+            <p class="role">Technical Lead, building with .NET, TypeScript and applied AI</p>
+            <ul class="contact">
+                <li><a href="mailto:asirisomarathne@gmail.com">asirisomarathne@gmail.com</a></li>
+                <li><a href="tel:+94702790690">+94 70 279 0690</a></li>
+                <li><a href="https://linkedin.com/in/asirisomarathne">linkedin.com/in/asirisomarathne</a></li>
+                <li><a href="https://github.com/Mahen65">github.com/Mahen65</a></li>
+                <li>Bandaragama, Sri Lanka</li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="block summary">
+        <h2>Profile</h2>
+        <p>
+            Technical lead with 11+ years of building business software, from large .NET desktop ERPs to
+            cloud microservices and AI-powered mobile apps. I design systems end to end, lead and mentor
+            developers, and take products to production on .NET and TypeScript back ends, React web apps and
+            React Native apps for iOS and Android, PostgreSQL, Azure and Google Cloud. Much of my recent work puts large
+            language models into real products: menu understanding, retrieval-backed assistants and
+            AI-assisted engineering tools.
+        </p>
+    </section>
+
+    <section class="block">
+        <h2>Experience</h2>
+        <div class="entries">
+
+            <div class="entry long">
+                <h3>Technical Lead</h3>
+                <p class="when">Feb 2020 – Present</p>
+                <p class="where">Twire Private Limited</p>
+                <div class="body">
+                    <ul>
+                        <li>
+                            <strong>Menuno</strong>: lead developer of an AI menu-scanning app for travellers.
+                            Point the camera at any menu and get translations, allergen warnings, dietary fit
+                            and per-person dish recommendations. Built the API, web dashboard, a consumer app and
+                            a separate Menuno Chef app for restaurants, released to the App Store and Google Play.
+                            <span class="stack">TypeScript monorepo (pnpm, Turborepo), Fastify, React, React Native / Expo (iOS and Android), PostgreSQL + pgvector, Redis, Drizzle, Claude API, OCR, Google Cloud</span>
+                        </li>
+                        <li>
+                            <strong>OnDeMove</strong>: designed and built the cloud platform for an assistive
+                            hearing system for hearing-impaired schoolchildren, pairing Nordic BLE hardware with
+                            microservices for identity, schools, devices, classroom sessions, audit and
+                            notifications behind an API gateway.
+                            <span class="stack">.NET 10 minimal APIs, EF Core, PostgreSQL, JWT / OAuth (Google, Microsoft, Firebase), Azure Queues, Docker, xUnit</span>
+                        </li>
+                        <li>
+                            <strong>AudiologyBot</strong>: an audiogram consultation assistant that answers
+                            from a curated knowledge base using retrieval-augmented generation.
+                            <span class="stack">.NET 10, Anthropic Claude SDK, Semantic Kernel, pgvector, Voyage AI embeddings</span>
+                        </li>
+                        <li>
+                            <strong>CAM</strong>: customer acquisition management platform with modular
+                            questionnaires, reporting and templated email.
+                            <span class="stack">.NET 8, clean architecture, EF Core</span>
+                        </li>
+                        <li>
+                            Delivered and ran a full ERP for one of the world's leading cigar manufacturers
+                            over four years.
+                            <span class="stack">.NET Windows Forms, .NET Core, SQL Server, Hangfire, Azure</span>
+                        </li>
+                        <li>
+                            Mentor developers, run code reviews and set engineering practice. Brought AI-assisted
+                            development into the team's daily work, including custom Claude Code skills for
+                            internal tools.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+                <h3>Software Engineer</h3>
+                <p class="when">Feb 2019 – Feb 2020</p>
+                <p class="where">Sirus Technologies Services (Pvt) Ltd, Abans Group</p>
+                <div class="body">
+                    <ul>
+                        <li>Developed and maintained the group's main ERP desktop application, at the time one of the systems with the most concurrent users in Sri Lanka.<span class="stack">C#, Windows Forms, WCF, Oracle 12c</span></li>
+                        <li>Built web applications in ASP.NET Core and a document management system in .NET Core and Angular.</li>
+                        <li>Took part in code reviews and architecture decisions.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+                <h3>Junior Developer to Senior Developer</h3>
+                <p class="when">Jan 2015 – Feb 2019</p>
+                <p class="where">Naturub Exports International (Pvt) Ltd</p>
+                <div class="body">
+                    <ul>
+                        <li>Built and maintained in-house production planning and stock management systems.<span class="stack">C#, Windows Forms, SQL Server</span></li>
+                        <li>Developed a supply chain management system in ASP.NET Web Forms and several invoicing systems in WPF.</li>
+                        <li>Improved performance and availability, and worked with business analysts to turn requirements into working features.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>Own projects</h2>
+        <div class="entries">
+
+            <div class="entry project">
+                <h3><a href="https://changemap.dev/">Changemap</a></h3>
+                <p class="when">2026</p>
+                <p class="where"><a href="https://changemap.dev/">changemap.dev</a></p>
+                <div class="body">
+                    A Mac app that maps any repository's architecture as a system view and code map, flags risks,
+                    and runs AI reviews with the model the user chooses: local (Ollama, LM Studio) or Claude.
+                    <span class="stack">Electron, TypeScript, Vite, static analysis, LLM integration</span>
+                </div>
+            </div>
+
+            <div class="entry project">
+                <h3>PaperLab</h3>
+                <p class="when">2026</p>
+                <div class="body">
+                    An exam practice app for Sri Lankan students, built on digitised Department of Examinations
+                    past papers, with phone and Google sign-in.
+                    <span class="stack">Expo / React Native, Supabase, Node.js</span>
+                </div>
+            </div>
+
+            <div class="entry project">
+                <h3><a href="https://github.com/Mahen65/HoldMySlot">HoldMySlot</a></h3>
+                <p class="when">2026</p>
+                <div class="body">
+                    A multi-tenant booking platform supporting time-slot, hourly and whole-day bookings, with a
+                    drag-and-drop scheduler, public booking pages and admin and customer mobile apps.
+                    <span class="stack">.NET 10, PostgreSQL, React 19, React Native, Docker, Kubernetes</span>
+                </div>
+            </div>
+
+            <div class="entry project">
+                <h3><a href="https://github.com/Mahen65/faux">Faux</a></h3>
+                <p class="when">2026</p>
+                <div class="body">
+                    A Chrome extension that detects form fields and fills them with realistic test data from
+                    Claude, OpenAI, Gemini or Ollama, and learns from past submissions through RAG.
+                    <span class="stack">TypeScript, Preact, Python, FastAPI, PostgreSQL + pgvector</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>Skills</h2>
+        <dl class="skills">
+            <div><dt>Back end</dt><dd>C#, .NET 10 / 8, ASP.NET Core, EF Core, WCF, Node.js, Fastify, Python, FastAPI</dd></div>
+            <div><dt>Front end</dt><dd>TypeScript, React, Angular, Tailwind, Vite, Windows Forms, WPF</dd></div>
+            <div><dt>Mobile</dt><dd>React Native and Expo for iOS and Android, EAS builds, App Store and Google Play releases</dd></div>
+            <div><dt>Applied AI</dt><dd>Claude API, RAG, vector search (pgvector), embeddings, Semantic Kernel, MCP, AI-assisted development</dd></div>
+            <div><dt>Data</dt><dd>PostgreSQL, SQL Server, Oracle 12c, Redis, Supabase, Entity Framework Core, Drizzle ORM</dd></div>
+            <div><dt>Cloud and delivery</dt><dd>Azure, Google Cloud (Cloud Run, Cloud Build), Firebase, Docker, Kubernetes, CI/CD (Azure Pipelines, Bitbucket Pipelines), Hangfire</dd></div>
+            <div><dt>Architecture</dt><dd>Microservices, API gateways, multi-tenant SaaS, clean architecture, monorepos</dd></div>
+        </dl>
+    </section>
+
+    <section class="block">
+        <h2>Education and certifications</h2>
+        <div class="entries">
+            <div class="entry">
+                <h3><a href="https://academy.claude.com/verify/9be447acdb6e817127551c951c1ba626">Claude Code in Action</a></h3>
+                <p class="when">Mar 2026</p>
+                <p class="where">Anthropic Claude Academy, verified course completion</p>
+            </div>
+            <div class="entry">
+                <h3>BCS Certified Professional</h3>
+                <p class="when">2021</p>
+                <p class="where">British Computer Society</p>
+            </div>
+            <div class="entry">
+                <h3>Advanced Diploma in .NET Application Development using C#</h3>
+                <p class="when">2014 – 2015</p>
+                <p class="where">Lalith Athulathmudali Vocational Training Institute, Ratmalana</p>
+            </div>
+            <div class="entry">
+                <h3>Diploma in Software Engineering</h3>
+                <p class="when">2013 – 2014</p>
+                <p class="where">Sabaragamuwa University of Sri Lanka, top of the batch</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>Languages</h2>
+        <p class="meta-line">English <span>(fluent)</span>, Sinhala <span>(native)</span></p>
+    </section>
+
+    <footer class="print-footer">
+        Latest version: <a href="https://mahen65.github.io/Resume/">mahen65.github.io/Resume</a>
+    </footer>
+</article>
+
+<button class="download" type="button" onclick="window.print()" aria-label="Download as PDF">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+    Download PDF
+</button>
 </body>
 </html>
